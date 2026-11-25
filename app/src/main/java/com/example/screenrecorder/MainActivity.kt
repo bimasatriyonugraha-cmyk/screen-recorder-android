@@ -127,10 +127,10 @@ class MainActivity : AppCompatActivity() {
             if (result.resultCode != Activity.RESULT_OK || data == null) {
                 snack(getString(R.string.warn_capture_cancelled))
                 binding.btnRecord.isEnabled = true
-                return@StartActivityForResult
+                return@registerForActivityResult
             }
 
-            val config = activeConfig ?: return@StartActivityForResult
+            val config = activeConfig ?: return@registerForActivityResult
             val intent = Intent(this, ScreenRecordService::class.java).apply {
                 action = RecordingContract.ACTION_START
                 putExtra(RecordingContract.EXTRA_RESULT_CODE, result.resultCode)

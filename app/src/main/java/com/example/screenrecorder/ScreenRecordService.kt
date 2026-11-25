@@ -456,7 +456,7 @@ class ScreenRecordService : Service() {
         // On 33+ the user may have denied POST_NOTIFICATIONS. The service notification that
         // startForeground() posted is still mandatory and stays, but re-notifying a hidden
         // channel is pointless work, so skip it.
-        if (!manager.areNotificationsEnabled) return
+        if (!manager.areNotificationsEnabled()) return
         manager.notify(RecordingContract.NOTIFICATION_ID, NotificationHelper.build(this, sessionState, elapsedMillis, config))
     }
 
